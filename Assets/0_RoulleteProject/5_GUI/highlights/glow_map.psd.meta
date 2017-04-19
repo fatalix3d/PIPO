@@ -1,0 +1,770 @@
+fileFormatVersion: 2
+guid: ab1eb6357379a5a46adb1047cb282fe5
+timeCreated: 1471847456
+licenseType: Free
+TextureImporter:
+  fileIDToRecycleName:
+    21300000: glow_map_0
+    21300002: glow_map_1
+    21300004: glow_map_2
+    21300006: glow_map_3
+    21300008: glow_map_4
+    21300010: glow_map_5
+    21300012: glow_map_6
+    21300014: glow_map_7
+    21300016: glow_map_8
+    21300018: glow_map_9
+    21300020: glow_map_10
+    21300022: glow_map_11
+    21300024: glow_map_12
+    21300026: glow_map_13
+    21300028: glow_map_14
+    21300030: glow_map_15
+    21300032: glow_map_16
+    21300034: glow_map_17
+    21300036: glow_map_18
+    21300038: glow_map_19
+    21300040: glow_map_20
+    21300042: glow_map_21
+    21300044: glow_map_22
+    21300046: glow_map_23
+    21300048: glow_map_24
+    21300050: glow_map_25
+    21300052: glow_map_26
+    21300054: glow_map_27
+    21300056: glow_map_28
+    21300058: glow_map_29
+    21300060: glow_map_30
+    21300062: glow_map_31
+    21300064: glow_map_32
+    21300066: glow_map_33
+    21300068: glow_map_34
+    21300070: glow_map_35
+    21300072: glow_map_36
+    21300074: glow_map_37
+    21300076: glow_map_38
+    21300078: glow_map_39
+    21300080: glow_map_40
+    21300082: glow_map_41
+    21300084: glow_map_42
+    21300086: glow_map_43
+    21300088: glow_map_44
+    21300090: glow_map_45
+    21300092: glow_map_46
+    21300094: glow_map_47
+    21300096: glow_map_48
+  serializedVersion: 4
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: -1
+  maxTextureSize: 512
+  textureSettings:
+    filterMode: -1
+    aniso: 16
+    mipBias: -1
+    wrapMode: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 1
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spritePixelsToUnits: 100
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  platformSettings:
+  - buildTarget: DefaultTexturePlatform
+    maxTextureSize: 512
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+  - buildTarget: Android
+    maxTextureSize: 512
+    textureFormat: 47
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 1
+  - buildTarget: Standalone
+    maxTextureSize: 512
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: glow_map_0
+      rect:
+        serializedVersion: 2
+        x: 204
+        y: 1840
+        width: 545
+        height: 146
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: glow_map_1
+      rect:
+        serializedVersion: 2
+        x: 754
+        y: 1840
+        width: 546
+        height: 146
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: glow_map_2
+      rect:
+        serializedVersion: 2
+        x: 1305
+        y: 1840
+        width: 545
+        height: 146
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: glow_map_3
+      rect:
+        serializedVersion: 2
+        x: 51
+        y: 1387
+        width: 148
+        height: 449
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: glow_map_4
+      rect:
+        serializedVersion: 2
+        x: 204
+        y: 1689
+        width: 132
+        height: 147
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: glow_map_5
+      rect:
+        serializedVersion: 2
+        x: 340
+        y: 1689
+        width: 134
+        height: 147
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: glow_map_6
+      rect:
+        serializedVersion: 2
+        x: 479
+        y: 1689
+        width: 133
+        height: 147
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: glow_map_7
+      rect:
+        serializedVersion: 2
+        x: 616
+        y: 1689
+        width: 133
+        height: 147
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: glow_map_8
+      rect:
+        serializedVersion: 2
+        x: 754
+        y: 1689
+        width: 134
+        height: 147
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: glow_map_9
+      rect:
+        serializedVersion: 2
+        x: 892
+        y: 1689
+        width: 132
+        height: 147
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: glow_map_10
+      rect:
+        serializedVersion: 2
+        x: 1030
+        y: 1689
+        width: 132
+        height: 147
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: glow_map_11
+      rect:
+        serializedVersion: 2
+        x: 1167
+        y: 1689
+        width: 133
+        height: 147
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: glow_map_12
+      rect:
+        serializedVersion: 2
+        x: 1305
+        y: 1689
+        width: 132
+        height: 147
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: glow_map_13
+      rect:
+        serializedVersion: 2
+        x: 1440
+        y: 1689
+        width: 136
+        height: 147
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: glow_map_14
+      rect:
+        serializedVersion: 2
+        x: 1580
+        y: 1689
+        width: 132
+        height: 147
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: glow_map_15
+      rect:
+        serializedVersion: 2
+        x: 1718
+        y: 1689
+        width: 132
+        height: 147
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: glow_map_16
+      rect:
+        serializedVersion: 2
+        x: 1855
+        y: 1689
+        width: 132
+        height: 146
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: glow_map_17
+      rect:
+        serializedVersion: 2
+        x: 204
+        y: 1538
+        width: 132
+        height: 146
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: glow_map_18
+      rect:
+        serializedVersion: 2
+        x: 340
+        y: 1538
+        width: 136
+        height: 146
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: glow_map_19
+      rect:
+        serializedVersion: 2
+        x: 479
+        y: 1538
+        width: 132
+        height: 146
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: glow_map_20
+      rect:
+        serializedVersion: 2
+        x: 616
+        y: 1538
+        width: 133
+        height: 146
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: glow_map_21
+      rect:
+        serializedVersion: 2
+        x: 754
+        y: 1538
+        width: 134
+        height: 146
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: glow_map_22
+      rect:
+        serializedVersion: 2
+        x: 892
+        y: 1538
+        width: 132
+        height: 146
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: glow_map_23
+      rect:
+        serializedVersion: 2
+        x: 1030
+        y: 1538
+        width: 132
+        height: 146
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: glow_map_24
+      rect:
+        serializedVersion: 2
+        x: 1167
+        y: 1538
+        width: 133
+        height: 146
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: glow_map_25
+      rect:
+        serializedVersion: 2
+        x: 1305
+        y: 1538
+        width: 132
+        height: 146
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: glow_map_26
+      rect:
+        serializedVersion: 2
+        x: 1442
+        y: 1538
+        width: 134
+        height: 146
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: glow_map_27
+      rect:
+        serializedVersion: 2
+        x: 1580
+        y: 1538
+        width: 132
+        height: 146
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: glow_map_28
+      rect:
+        serializedVersion: 2
+        x: 1718
+        y: 1538
+        width: 132
+        height: 146
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: glow_map_29
+      rect:
+        serializedVersion: 2
+        x: 1855
+        y: 1538
+        width: 132
+        height: 146
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: glow_map_30
+      rect:
+        serializedVersion: 2
+        x: 204
+        y: 1387
+        width: 132
+        height: 146
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: glow_map_31
+      rect:
+        serializedVersion: 2
+        x: 340
+        y: 1387
+        width: 134
+        height: 146
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: glow_map_32
+      rect:
+        serializedVersion: 2
+        x: 479
+        y: 1387
+        width: 132
+        height: 146
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: glow_map_33
+      rect:
+        serializedVersion: 2
+        x: 616
+        y: 1387
+        width: 133
+        height: 146
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: glow_map_34
+      rect:
+        serializedVersion: 2
+        x: 754
+        y: 1387
+        width: 134
+        height: 146
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: glow_map_35
+      rect:
+        serializedVersion: 2
+        x: 892
+        y: 1387
+        width: 132
+        height: 146
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: glow_map_36
+      rect:
+        serializedVersion: 2
+        x: 1030
+        y: 1387
+        width: 132
+        height: 146
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: glow_map_37
+      rect:
+        serializedVersion: 2
+        x: 1167
+        y: 1387
+        width: 133
+        height: 146
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: glow_map_38
+      rect:
+        serializedVersion: 2
+        x: 1305
+        y: 1387
+        width: 132
+        height: 146
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: glow_map_39
+      rect:
+        serializedVersion: 2
+        x: 1440
+        y: 1387
+        width: 136
+        height: 146
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: glow_map_40
+      rect:
+        serializedVersion: 2
+        x: 1580
+        y: 1387
+        width: 132
+        height: 146
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: glow_map_41
+      rect:
+        serializedVersion: 2
+        x: 1718
+        y: 1387
+        width: 132
+        height: 146
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: glow_map_42
+      rect:
+        serializedVersion: 2
+        x: 1855
+        y: 1387
+        width: 132
+        height: 146
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: glow_map_43
+      rect:
+        serializedVersion: 2
+        x: 204
+        y: 1250
+        width: 272
+        height: 132
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: glow_map_44
+      rect:
+        serializedVersion: 2
+        x: 479
+        y: 1250
+        width: 270
+        height: 132
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: glow_map_45
+      rect:
+        serializedVersion: 2
+        x: 754
+        y: 1250
+        width: 270
+        height: 132
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: glow_map_46
+      rect:
+        serializedVersion: 2
+        x: 1028
+        y: 1250
+        width: 272
+        height: 132
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: glow_map_47
+      rect:
+        serializedVersion: 2
+        x: 1305
+        y: 1250
+        width: 271
+        height: 132
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: glow_map_48
+      rect:
+        serializedVersion: 2
+        x: 1580
+        y: 1250
+        width: 270
+        height: 132
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: -1
+    outline: []
+  spritePackingTag: hlights
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

@@ -18,9 +18,9 @@ public class NetData {
     public int TRANS;
     public float CASH;
 
-    public float SET5;
-    public float SET6;
-    public float SET7;
-    public float SET8;
+    public int SET5;
+    public int SET6;
+    public int SET7;
+    public int SET8;
 }
 

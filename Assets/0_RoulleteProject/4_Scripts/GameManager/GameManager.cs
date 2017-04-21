@@ -1,4 +1,5 @@
 ﻿//WORK BUILD : 0.56B;
+//PIPO;
 using UnityEngine;
 using UnityEngine.UI;
 using System.Collections;
@@ -77,12 +78,12 @@ public class GameManager : MonoBehaviour {
     public Hashtable key_code = new Hashtable();
 
     //Limit to bets;
-    public float max_field_bet = 25; //SET 5
-    public float max_cell_bet = 10;  //SET 6
-    public float min_cell_bet = 10;  //SET 7
-    public float min_out_bet = 10;  //SET 8
+    public int max_field_bet = 25; //SET 5
+    public int max_cell_bet = 10;  //SET 6
+    public int min_cell_bet = 10;  //SET 7
+    public int min_out_bet = 10;  //SET 8
 
-    public void SetDataValues(float set5, float set6, float set7, float set8)
+    public void SetDataValues(int set5, int set6, int set7, int set8)
     {
         max_field_bet = set5;
         max_cell_bet = set6;
@@ -287,11 +288,26 @@ public class GameManager : MonoBehaviour {
             n_id = neigbors[n_map_id].n_index;
             t_max_cell = t_data.cells_list[n_id].cell_bet_value + cur_bet_value;
 
-            if (t_max_cell <= max_cell_bet)
+            if (t_max_cell >= min_cell_bet && t_max_cell <= max_cell_bet)
             {
                 t_all_sum += cur_bet_value;
             }
+            else
+            {
+                if (t_max_cell <= min_cell_bet)
+                {
+                    t_all_sum += min_cell_bet;
+                }
+                else
+                if (t_max_cell > max_cell_bet)
+                {
+                    int x_val = max_cell_bet - t_data.cells_list[n_id].cell_bet_value;
+                    t_all_sum += x_val;
+                }
+            }
         }
+
+        Debug.Log("Neighbors set value is : " + t_all_sum);
         ttb = CalcCurBet();
 
         //Делаем ставку на закрываемые номера;
@@ -320,13 +336,32 @@ public class GameManager : MonoBehaviour {
                     //Get current cell bet value;
                     t_max_cell = t_data.cells_list[n_id].cell_bet_value + cur_bet_value;
 
-                    if (t_max_cell <= max_cell_bet)
+                    if (t_max_cell >= min_cell_bet && t_max_cell <= max_cell_bet)
                     {
                         //Root => create bet to this cell;
                         t_data.cells_list[n_id].cell_bet_value += cur_bet_value;
 
                         //Root => save n_value;
                         neigbors[n_map_id].n_value += cur_bet_value;
+                    }
+                    else
+                    {
+                        if (t_max_cell <= min_cell_bet)
+                        {
+                            //Root => create bet to this cell;
+                            t_data.cells_list[n_id].cell_bet_value += min_cell_bet;
+                            //Root => save n_value;
+                            neigbors[n_map_id].n_value += min_cell_bet;
+                        }
+                        else
+                        if (t_max_cell > max_cell_bet)
+                        {
+                            int x_val = max_cell_bet - t_data.cells_list[n_id].cell_bet_value;
+                            //Root => create bet to this cell;
+                            t_data.cells_list[n_id].cell_bet_value += x_val;
+                            //Root => save n_value;
+                            neigbors[n_map_id].n_value += x_val;
+                        }
                     }
                 }
 
@@ -376,8 +411,8 @@ public class GameManager : MonoBehaviour {
         int ttb = 0;
 
         //Min max values;
-        float min_val = 0;
-        float max_val = 0;
+        int min_val = 0;
+        int max_val = 0;
 
         //Set min/max values based on cell type;
         //-------------------------------------------;
@@ -426,7 +461,41 @@ public class GameManager : MonoBehaviour {
                 }
                 else
                 {
-                    popupWindow.ShowPopup("<size=50>Недопустимая ставка.</size>");
+                    //popupWindow.ShowPopup("<size=50>Недопустимая ставка.</size>");
+                    ttb = CalcCurBet();
+
+                    //Bet is < min value;
+                    if (t_max_cell < min_val)
+                    {
+                        if ((ttb + min_val) <= max_field_bet)
+                        {
+                            //Debug.Log("bet is updated");
+                            _cell.cell_bet_value += min_val;
+                            SetBasicChip(_cell, min_val);
+                            p_credit -= min_val;
+                            p_balance -= min_val * p_denomination;
+                            UpdateLabels();
+                            SaveHistory(min_val);
+                        }
+                    }
+                    else
+                    {
+                        //Bet is > max value;
+                        if (t_max_cell > max_val)
+                        {
+                            int x_val = max_val - _cell.cell_bet_value;
+
+                            if ((ttb + x_val) <= max_field_bet)
+                            {
+                                _cell.cell_bet_value += x_val;
+                                SetBasicChip(_cell, x_val);
+                                p_credit -= x_val;
+                                p_balance -= x_val * p_denomination;
+                                UpdateLabels();
+                                SaveHistory(x_val);
+                            }
+                        }
+                    }
                 }
             }
             else
@@ -452,9 +521,22 @@ public class GameManager : MonoBehaviour {
                 Cell tCell = t_data.cells_list[indexes[i]];
                 t_max_cell = tCell.cell_bet_value + _value;
 
-                if (t_max_cell <= max_cell_bet)
+                if (t_max_cell >= min_cell_bet && t_max_cell <= max_cell_bet)
                 {
                     t_all_sum += _value;
+                }
+                else
+                {
+                    if (t_max_cell <= min_val)
+                    {
+                        t_all_sum += min_val;
+                    }
+                    else
+                    if (t_max_cell > max_val)
+                    {
+                        int x_val = max_val - tCell.cell_bet_value;
+                        t_all_sum += x_val;
+                    }
                 }
             }
 
@@ -469,38 +551,62 @@ public class GameManager : MonoBehaviour {
                         Cell tCell = t_data.cells_list[indexes[i]];
                         t_max_cell = tCell.cell_bet_value + _value;
 
-                        if (t_max_cell <= max_cell_bet)
+                        if (t_max_cell >= min_cell_bet && t_max_cell <= max_cell_bet)
                         {
                             tCell.cell_bet_value += _value;
                             p_credit -= _value;
                             p_balance -= _value * p_denomination;
                         }
+                        else
+                        {
+                            if (t_max_cell <= min_val)
+                            {
+                                tCell.cell_bet_value += min_val;
+                                p_credit -= min_val;
+                                p_balance -= min_val * p_denomination;
+                            }
+                            else
+                            if (t_max_cell > max_val)
+                            {
+                                int x_val = max_val - tCell.cell_bet_value;
+
+                                tCell.cell_bet_value += x_val;
+                                p_credit -= x_val;
+                                p_balance -= x_val * p_denomination;
+                            }
+                        }
                     }
-                    
+
                     SetSetChip(_cell, t_all_sum);
                     UpdateLabels();
                     SaveHistory(t_all_sum);
                 }
                 else
                 {
-                    popupWindow.ShowPopup("<size=50>Макс. ставка на поле</size>"
-                    + "\n<size=35>Вы ставите (<color=yellow>"
-                    + (ttb + t_all_sum).ToString()
-                    + "</color>), ставка на поле (<color=yellow>"
-                    + max_field_bet.ToString()
-                    + "</color>);</size>"
-                    );
+                    if (t_all_sum > 0)
+                    {
+                        popupWindow.ShowPopup("<size=50>Макс. ставка на поле</size>"
+                        + "\n<size=35>Вы ставите (<color=yellow>"
+                        + (ttb + t_all_sum).ToString()
+                        + "</color>), ставка на поле (<color=yellow>"
+                        + max_field_bet.ToString()
+                        + "</color>);</size>"
+                        );
+                    }
                 }
             }
             else
             {
-                popupWindow.ShowPopup("<size=50>Не хватает кредитов</size>"
-                + "\n<size=35>Вы ставите (<color=yellow>"
-                + t_all_sum.ToString()
-                + "</color>), доступный кредит (<color=yellow>"
-                + p_credit.ToString()
-                + "</color>);</size>"
-                );
+                if (t_all_sum > 0)
+                {
+                    popupWindow.ShowPopup("<size=50>Не хватает кредитов</size>"
+                    + "\n<size=35>Вы ставите (<color=yellow>"
+                    + t_all_sum.ToString()
+                    + "</color>), доступный кредит (<color=yellow>"
+                    + p_credit.ToString()
+                    + "</color>);</size>"
+                    );
+                }
             }
         }
     }

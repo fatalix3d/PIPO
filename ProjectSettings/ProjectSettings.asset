@@ -148,7 +148,7 @@ PlayerSettings:
   AndroidBundleVersionCode: 1
   AndroidMinSdkVersion: 16
   AndroidTargetSdkVersion: 0
-  AndroidPreferredInstallLocation: 0
+  AndroidPreferredInstallLocation: 2
   aotOptions: 
   stripEngineCode: 0
   iPhoneStrippingLevel: 0

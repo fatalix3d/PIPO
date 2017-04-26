@@ -29,4 +29,7 @@ public class Cell {
     public ChipsTower cell_chip_tower;
     public ChipsTower ext_cell_chip_tower;
     public ChipsTower knot_cell_chip_tower;
+
+    public List<int> n_list = new List<int>();
+
 }

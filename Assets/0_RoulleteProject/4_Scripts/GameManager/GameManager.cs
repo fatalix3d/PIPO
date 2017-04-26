@@ -92,7 +92,6 @@ public class GameManager : MonoBehaviour {
     }
 
     #endregion
-
     #region Start
     //Start;
     //======================================;
@@ -307,7 +306,6 @@ public class GameManager : MonoBehaviour {
             }
         }
 
-        Debug.Log("Neighbors set value is : " + t_all_sum);
         ttb = CalcCurBet();
 
         //Делаем ставку на закрываемые номера;
@@ -423,8 +421,17 @@ public class GameManager : MonoBehaviour {
         }
         else
         {
-            min_val = min_cell_bet;
-            max_val = max_cell_bet;
+            if (_cell.cell_close_id.Count > 1) {
+                //Debug.Log("Split bet");
+                min_val = min_cell_bet;
+                max_val = max_cell_bet * _cell.cell_close_id.Count;
+            }
+            else
+            {
+                //Debug.Log("Standart bet");
+                min_val = min_cell_bet;
+                max_val = max_cell_bet;
+            }
         }
 
         //Set to basic bet;
@@ -469,7 +476,7 @@ public class GameManager : MonoBehaviour {
                     {
                         if ((ttb + min_val) <= max_field_bet)
                         {
-                            //Debug.Log("bet is updated");
+                            Debug.Log("bet is updated");
                             _cell.cell_bet_value += min_val;
                             SetBasicChip(_cell, min_val);
                             p_credit -= min_val;
@@ -485,14 +492,17 @@ public class GameManager : MonoBehaviour {
                         {
                             int x_val = max_val - _cell.cell_bet_value;
 
-                            if ((ttb + x_val) <= max_field_bet)
+                            if (x_val > 0)
                             {
-                                _cell.cell_bet_value += x_val;
-                                SetBasicChip(_cell, x_val);
-                                p_credit -= x_val;
-                                p_balance -= x_val * p_denomination;
-                                UpdateLabels();
-                                SaveHistory(x_val);
+                                if ((ttb + x_val) <= max_field_bet)
+                                {
+                                    _cell.cell_bet_value += x_val;
+                                    SetBasicChip(_cell, x_val);
+                                    p_credit -= x_val;
+                                    p_balance -= x_val * p_denomination;
+                                    UpdateLabels();
+                                    SaveHistory(x_val);
+                                }
                             }
                         }
                     }
@@ -535,7 +545,11 @@ public class GameManager : MonoBehaviour {
                     if (t_max_cell > max_val)
                     {
                         int x_val = max_val - tCell.cell_bet_value;
-                        t_all_sum += x_val;
+
+                        if (x_val > 0)
+                        {
+                            t_all_sum += x_val;
+                        }
                     }
                 }
             }
@@ -570,9 +584,12 @@ public class GameManager : MonoBehaviour {
                             {
                                 int x_val = max_val - tCell.cell_bet_value;
 
-                                tCell.cell_bet_value += x_val;
-                                p_credit -= x_val;
-                                p_balance -= x_val * p_denomination;
+                                if (x_val > 0)
+                                {
+                                    tCell.cell_bet_value += x_val;
+                                    p_credit -= x_val;
+                                    p_balance -= x_val * p_denomination;
+                                }
                             }
                         }
                     }
@@ -1293,91 +1310,196 @@ public class GameManager : MonoBehaviour {
         int ttb = 0;
         ttb = CalcCurBet();
 
-        if (!game_lock)
+        int t_all_sum = 0;
+        int x_summ = 0;
+
+        //BASIC;
+        //----------------------;
+        Debug.Log("Basic check : ");
+        for (int i = 0; i < t_data.cells_list.Count; i++)
         {
-            //Calculate sum;
-            int t_all_sum = 0;
-            for (int i = 0; i < t_data.cells_list.Count; i++)
+            Cell tCell = t_data.cells_list[i];
+
+            if (tCell.cell_chip_instance != null)
             {
-                Cell tCell = t_data.cells_list[i];
-                if (tCell.cell_bet_value > 0)
+                if ((tCell.cell_bet_value * 2) <= max_cell_bet)
                 {
                     t_all_sum += tCell.cell_bet_value;
+                    Debug.Log(" + " + tCell.cell_bet_value);
+                }
+                else
+                {
+                    x_summ = max_cell_bet - tCell.cell_bet_value;
+                    if (x_summ > 0)
+                    {
+                        t_all_sum += x_summ;
+                        Debug.Log(" + " + x_summ);
+                    }
                 }
             }
+        }
 
-            //Set new values;
-            if (t_all_sum <= p_credit)
+        Debug.Log("Total summ : " + t_all_sum);
+
+        //SET;
+        //----------------------;
+        //Debug.Log("SET check : ");
+        //for (int i = 0; i < t_data.cells_list.Count; i++)
+        //{
+        //    Cell tCell = t_data.cells_list[i];
+
+        //    if (tCell.cell_extra_chip_instance != null)
+        //    {
+        //        for (int j = 0; j < tCell.cell_close_id.Count; j++)
+        //        {
+        //            int _id = tCell.cell_close_id[j];
+        //            int val = t_data.cells_list[_id].cell_bet_value;
+
+        //            if ((val * 2) <= max_cell_bet)
+        //            {
+        //                t_all_sum += val;
+        //                Debug.Log(" + " + val);
+        //            }
+        //            else
+        //            {
+        //                x_summ = max_cell_bet - val;
+        //                if (x_summ > 0)
+        //                {
+        //                    t_all_sum += x_summ;
+        //                    Debug.Log(" + " + x_summ);
+        //                }
+        //            }
+        //        }
+        //    }
+        //}
+
+        //NEIGHBORS;
+        //----------------------;
+        //Debug.Log("Neighbors check : ");
+        //for (int i = 0; i < t_data.cells_list.Count; i++)
+        //{
+        //    Cell tCell = t_data.cells_list[i];
+
+        //    if (tCell.cell_neighbors_knot_instance != null)
+        //    {
+        //        //find root node'
+        //        for (int k = 0; k < neigbors.Count; k++)
+        //        {
+        //            if (tCell.cell_id == neigbors[k].n_index)
+        //            {
+        //                for (int j = 0; j < neigbors[k].n_close_id.Count; j++)
+        //                {
+        //                    int _index = neigbors[k].n_close_id[j];
+        //                    int val = t_data.cells_list[_index].cell_bet_value;
+
+        //                    if ((val * 2) <= max_cell_bet)
+        //                    {
+        //                        t_all_sum += val;
+        //                        Debug.Log(" + " + val);
+
+        //                    }
+        //                    else
+        //                    {
+        //                        x_summ = max_cell_bet - val;
+        //                        if (x_summ > 0)
+        //                        {
+        //                            t_all_sum += x_summ;
+        //                            Debug.Log(" + " + x_summ);
+        //                        }
+        //                    }
+        //                }
+        //            }
+        //        }
+        //    }
+        //}
+
+        Debug.Log(t_all_sum);
+
+
+
+        //if(t_all_sum > 0 && t_all_sum <= p_credit)
+        //{
+        //    if ((t_all_sum + ttb) <= max_field_bet)
+        //    {
+        //        for (int i = 0; i < t_data.cells_list.Count; i++)
+        //        {
+
+        //        }
+        //    }
+        //}
+        /*
+        //Set new values;
+        if (t_all_sum > 0 && t_all_sum <= p_credit)
+        {
+            if ((t_all_sum + ttb) <= max_field_bet)
             {
-                if ((t_all_sum + ttb) <= max_field_bet)
+                for (int i = 0; i < t_data.cells_list.Count; i++)
                 {
-                    for (int i = 0; i < t_data.cells_list.Count; i++)
+                    Cell tCell = t_data.cells_list[i];
+
+                    if (tCell.cell_bet_value > 0)
                     {
-                        Cell tCell = t_data.cells_list[i];
+                        tCell.cell_bet_value += tCell.cell_bet_value;
 
-                        if (tCell.cell_bet_value > 0)
+                        if (tCell.cell_chip_instance != null)
                         {
-                            tCell.cell_bet_value += tCell.cell_bet_value;
-
-                            if (tCell.cell_chip_instance != null)
-                            {
-                                ChipsTower trw = tCell.cell_chip_instance.GetComponent<ChipsTower>();
-                                int cur_chip_val = trw.chip_value * 2;
-                                trw.UpdateChipValue(cur_chip_val, false);
-                            }
-
-                            if (tCell.cell_extra_chip_instance != null)
-                            {
-                                ChipsTower trw = tCell.cell_extra_chip_instance.GetComponent<ChipsTower>();
-                                int cur_chip_val = trw.chip_value * 2;
-                                trw.UpdateChipValue(cur_chip_val, true);
-                            }
-
-                            if (tCell.cell_neighbors_knot_instance != null)
-                            {
-                                ChipsTower trw = tCell.cell_neighbors_knot_instance.GetComponent<ChipsTower>();
-                                int cur_chip_val = trw.chip_value * 2;
-                                trw.UpdateChipValue(cur_chip_val, true);
-                            }
+                            ChipsTower trw = tCell.cell_chip_instance.GetComponent<ChipsTower>();
+                            int cur_chip_val = trw.chip_value * 2;
+                            trw.UpdateChipValue(cur_chip_val, false);
                         }
 
-                        //Check for set chips;
                         if (tCell.cell_extra_chip_instance != null)
                         {
                             ChipsTower trw = tCell.cell_extra_chip_instance.GetComponent<ChipsTower>();
                             int cur_chip_val = trw.chip_value * 2;
                             trw.UpdateChipValue(cur_chip_val, true);
                         }
+
+                        if (tCell.cell_neighbors_knot_instance != null)
+                        {
+                            ChipsTower trw = tCell.cell_neighbors_knot_instance.GetComponent<ChipsTower>();
+                            int cur_chip_val = trw.chip_value * 2;
+                            trw.UpdateChipValue(cur_chip_val, true);
+                        }
                     }
 
-                    //Update credit;
-                    p_credit -= t_all_sum;
-                    p_balance -= t_all_sum * p_denomination;
-                    UpdateLabels();
-                    SaveHistory(t_all_sum);
+                    //Check for set chips;
+                    if (tCell.cell_extra_chip_instance != null)
+                    {
+                        ChipsTower trw = tCell.cell_extra_chip_instance.GetComponent<ChipsTower>();
+                        int cur_chip_val = trw.chip_value * 2;
+                        trw.UpdateChipValue(cur_chip_val, true);
+                    }
                 }
-                else
-                {
-                    popupWindow.ShowPopup("<size=50>Макс. ставка на поле</size>"
-                    + "\n<size=35>Вы ставите (<color=yellow>"
-                    + (ttb + t_all_sum).ToString()
-                    + "</color>), ставка на поле (<color=yellow>"
-                    + max_field_bet.ToString()
-                    + "</color>);</size>"
-                    );
-                }
+
+                //Update credit;
+                p_credit -= t_all_sum;
+                p_balance -= t_all_sum * p_denomination;
+                UpdateLabels();
+                SaveHistory(t_all_sum);
             }
             else
             {
-                popupWindow.ShowPopup("<size=50>Не хватает кредитов</size>"
+                popupWindow.ShowPopup("<size=50>Макс. ставка на поле</size>"
                 + "\n<size=35>Вы ставите (<color=yellow>"
-                + t_all_sum.ToString()
-                + "</color>), доступный кредит (<color=yellow>"
-                + p_credit.ToString()
+                + (ttb + t_all_sum).ToString()
+                + "</color>), ставка на поле (<color=yellow>"
+                + max_field_bet.ToString()
                 + "</color>);</size>"
                 );
             }
         }
+        else
+        {
+            popupWindow.ShowPopup("<size=50>Не хватает кредитов</size>"
+            + "\n<size=35>Вы ставите (<color=yellow>"
+            + t_all_sum.ToString()
+            + "</color>), доступный кредит (<color=yellow>"
+            + p_credit.ToString()
+            + "</color>);</size>"
+            );
+        }
+    */
     }
     #endregion
     #region Cancel_Last_Bet

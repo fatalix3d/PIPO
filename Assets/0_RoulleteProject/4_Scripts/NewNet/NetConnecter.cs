@@ -870,13 +870,13 @@ public class NetConnecter : MonoBehaviour {
     {
         lostConnection_obj.SetActive(true);
 
-        f = new FileInfo(Application.persistentDataPath + "\\" + "terminal.txt");
+        f = new FileInfo(Path.Combine(Application.persistentDataPath,"terminal.txt"));
         if (!f.Exists)
         {
-            File.WriteAllText(Application.persistentDataPath + "\\" + "terminal.txt", "terminal_ip, terminal_id, port_33600");
+            File.WriteAllText(Path.Combine(Application.persistentDataPath, "terminal.txt"), "terminal_ip, terminal_id, port_33600");
 
             string mes = "Не обнаружен файл настроек, создан новый.@1)Закройте приложение.@2)В проводнике найдите файл (terminal.txt) по адресу : "
-                + Application.persistentDataPath + "\\" + "terminal.txt@" + "3)Пропишите настроки, сохрание и снова запустите терминал.";
+                + Path.Combine(Application.persistentDataPath, "terminal.txt") + "@" + "3)Пропишите настроки, сохрание и снова запустите терминал.";
             string[] message_txt = mes.Split(new[] { '@' }, StringSplitOptions.RemoveEmptyEntries);
 
             dInfo.text += message_txt[0] + "\n";
@@ -885,7 +885,7 @@ public class NetConnecter : MonoBehaviour {
         }
         else
         {
-            string config = File.ReadAllText(Application.persistentDataPath + "\\" + "terminal.txt");
+            string config = File.ReadAllText(Path.Combine(Application.persistentDataPath, "terminal.txt"));
             string[] spConfig = config.Split(new[] { ',' }, StringSplitOptions.RemoveEmptyEntries);
             adress_ = spConfig[0];
             IpAddress = adress_;
